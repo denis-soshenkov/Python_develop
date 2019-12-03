@@ -19,13 +19,12 @@ for i in range(5):
 sum_5 = 0
 for i in range(10):
     user_input = input('Введите число: ')
-    for el in user_input:
-        if el == '5':
-            sum_5 += 1
+    if user_input == '5':
+        sum_5 += 1
 if sum_5 > 0:
-    print('В ваших введенных числах содержится', sum_5, 'цифр "5"')
+    print('Вы ввели цифры "5"', sum_5, 'раз(а)')
 else:
-    print('Вы ввели числа, которые не содержат цифру "5"')
+    print('Вы не ввели ни одной цифры "5"')
 
 '''
 Задача 3
