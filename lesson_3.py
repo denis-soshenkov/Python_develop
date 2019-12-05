@@ -28,9 +28,8 @@ list_for_sort = list(dict_words.items())
 list_for_sort.sort(key=lambda i: i[1], reverse=True)
 print(list_for_sort[:5])
 
-unique_words = set(list_words_lower)
-print(unique_words)
-
+# unique_words = set(list_words_lower)
+print('Количество уникальный слов: ', len(set(list_words_lower)))
 
 
 # PRO
@@ -50,5 +49,4 @@ list_for_sort_lemma = list(dict_words_lemma.items())
 list_for_sort_lemma.sort(key=lambda i: i[1], reverse=True)
 print(list_for_sort_lemma[:5])
 
-unique_words_lemma = set(list_words_lower_lemma)
-print(unique_words_lemma)
+print('Количество уникальный слов после лемматизации: ', len(set(list_words_lower_lemma)))
