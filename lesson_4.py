@@ -1,5 +1,5 @@
 import random
-from datetime import datetime
+from datetime import datetime, time
 
 names = ['Денис', 'Карл', 'Аристарх', 'Федосий', 'Эрнест', 'Аскольд', 'Антип', 'Порфирий', 'Борис', 'Владилен',
          'Гавриил', 'Олег', 'Владлен', 'Вадим', 'Пахом', 'Владислав', 'Богдан', 'Никита', 'Наум', 'Семен', 'Никанор',
@@ -52,11 +52,14 @@ def max_date(file):
     for line in f:
         events.append(line.replace('\n', '').split(sep=' - '))
     for event in events:
-        event[0] = datetime.strptime(event[0], '%Y-%m-%d %H:%M:%S,%f')
-    events.sort(reverse=True)
+        DT = datetime.strptime(event[0], '%Y-%m-%d %H:%M:%S,%f')
+        event.insert(1, DT.time())
+        event[0] = DT.date()
+    events.sort(key=lambda i: i[1], reverse=True)
     return events
 
 
 last_event = max_date(r'E:\log')[0]
-print(f'Самая поздняя запись в логе зафиксирована {last_event[0].strftime("%d.%m.%Y в %H:%M:%S")} '
-      f'для модуля {last_event[2]} приложения {last_event[1]} c текстом "{last_event[3]}"')
+print(f'Самая поздняя по времени запись в логе зафиксирована {last_event[0].strftime("%d.%m.%Y")} '
+      f'в {last_event[1].strftime("%H:%M:%S")} для модуля {last_event[3]} приложения {last_event[2]} '
+      f'c текстом "{last_event[4]}"')
