@@ -10,7 +10,7 @@ for z in znaki:
     f = f.replace(z, '')
 
 # сформировать List со словами
-list_words = list(f.split())
+list_words = f.split()
 
 # привести все слова к нижнему регистру
 list_words_lower = list(map(lambda x: x.lower(), list_words))
