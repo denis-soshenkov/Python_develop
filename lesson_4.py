@@ -33,9 +33,9 @@ print(f'Имя "{top_1[0]}" повторяется {top_1[1]} раз(а)')
 # Напишите функцию вывода самой редкой буквы, с которого начинаются имена в списке на выходе функции F
 def letter_top1(names):
     tmp_list = [x[0] for x in names]
-    tmp_dict = {x[0] for x in names}
+    tmp_set= {tmp_list}
     tmp = []
-    for letter in tmp_dict:
+    for letter in tmp_set:
         tmp.append((letter, tmp_list.count(letter)))
     tmp.sort(key=lambda i: i[1])
     return tmp[0]
